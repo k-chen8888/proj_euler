@@ -22,7 +22,7 @@ def kth_prime(k):
 	
 	try:
 		for i in range(1, k):
-			print prime.next()
+			prime.next()
 	
 	except StopIteration:
 		pass

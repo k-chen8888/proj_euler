@@ -14,8 +14,6 @@ def max_prod(l, k):
 	max_prod, max_start = 1, 0 
 	curr_prod, start = 1, 0
 	
-	print l
-	
 	# Continue until taking k elements overshoots the list
 	while start + k - 1 < len(l):
 		curr_prod = prod_from(l, start, k)
@@ -25,8 +23,10 @@ def max_prod(l, k):
 		
 		start = start + 1
 	
-	return [ max_prod, max_start ]
+	return [ max_prod, max_start, l[max_start:max_start + k] ]
 
 # Find the product
 if __name__ == '__main__':
-	print max_prod( [ int( sys.argv[1][i] ) for i in range(0, len(sys.argv[1]) ) ] , int(sys.argv[2]) )
+	f = open(sys.argv[1], "r")
+	number = f.read()
+	print max_prod( [ int(i) for i in list(number)[0:1000] ] , int(sys.argv[2]) )
